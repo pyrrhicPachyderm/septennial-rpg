@@ -1,0 +1,59 @@
+\usepackage[all]{nowidow}
+
+\usepackage{siunitx}
+\sisetup{per-mode=symbol} %Use a slash for negative exponents, instead of an actual negative exponent.
+
+%Put the chapter title on the same line as the chapter number.
+\makechapterstyle{oneline}{%
+	\renewcommand*{\chapnamefont}{\chaptitlefont}
+	\renewcommand*{\chapnumfont}{\chaptitlefont}
+	\renewcommand*{\afterchapternum}{\chaptitlefont :\ }%
+}
+\chapterstyle{oneline}
+
+%Don't number anything below chapters.
+\setsecnumdepth{chapter}
+
+%Show sections, but not subsections, in the Table of Contents.
+\settocdepth{section}
+
+%Move all the titles to the right in the ToC.
+%This gives enough space between the part number (in Roman numerals) and the part title.
+%Moving everything keeps the titles for the various layers aligned.
+\renewcommand*{\cftpartnumwidth}{4em}
+\renewcommand*{\cftchapternumwidth}{4em}
+\renewcommand*{\cftsectionindent}{4em}
+
+\usepackage{anyfontsize}
+
+\usepackage{hyperxmp} %Recommended for doclicense.
+\usepackage[
+	type={CC},
+	modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+\usepackage{hyperref}
+\usepackage{nameref}
+
+\usepackage{bookmark}
+\let\oldbackmatter\backmatter
+\renewcommand\backmatter{
+	\bookmarksetup{startatroot}
+	%End any ongoing parts/section etc.
+	%TODO: Perhaps a skip in the ToC too?
+	%https://stackoverflow.com/questions/1483396/how-to-explicitly-end-a-part-in-latex-with-hyperref
+	\oldbackmatter
+}
+
+\usepackage{xpatch}
+
+%This is to fix the following error:
+%pdfTeX error (ext4): \pdfendlink ended up in different nesting level than \pdfstartlink.
+%From the end of this answer: https://tex.stackexchange.com/a/249743
+%Using xpatch instead of etoolbox.
+\makeatletter
+\xpatchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{}
+\makeatother
+
+\pagestyle{plain} %No headers, and page numbers in bottom centre.

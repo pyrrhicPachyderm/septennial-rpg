@@ -1,0 +1,47 @@
+\renewcommand{\title}[1]{%
+	\gdef\thetitle{#1}%
+}
+\newcommand{\subtitle}[1]{%
+	\gdef\thesubtitle{#1}%
+}
+\newcommand{\editiontitle}[1]{%
+	\gdef\theeditiontitle{#1}%
+}
+\renewcommand{\author}[1]{%
+	\gdef\theauthor{#1}%
+}
+\newcommand{\illustrator}[1]{%
+	\gdef\theillustrator{#1}%
+}
+
+\newcommand\titlefontsize{\fontsize{70}{100}\selectfont}
+\newcommand\subtitlefontsize{\fontsize{30}{40}\selectfont}
+\newcommand\editiontitlefontsize{\fontsize{25}{30}\selectfont}
+\newcommand\persontitlefontsize{\fontsize{15}{20}\selectfont}
+
+%http://mirror.aut.ac.nz/CTAN/info/latex-samples/TitlePages/titlepages.pdf
+%This provides many example title pages, built manually.
+%They are used to inspire the titlepage built here.
+%In particular, titleDB.
+\newcommand*\titlepage{%
+	\onecolumn
+	\thispagestyle{empty}
+	\begingroup%
+		\centering
+		\vspace*{0.15\textheight}
+		{\titlefontsize \thetitle}\\[1.5\baselineskip]
+		{\subtitlefontsize \thesubtitle}\\[3\baselineskip]
+		\ifdefined\theeditiontitle
+			{\editiontitlefontsize \theeditiontitle}\\[\baselineskip]
+		\fi
+		\par
+		\vfill
+		{\persontitlefontsize \theauthor}\\[\baselineskip]
+		\ifdefined\theillustrator
+			{\persontitlefontsize Illustrated by \theillustrator}\\[\baselineskip]
+		\fi
+		\par
+		\vspace*{0.2\textheight}
+	\endgroup
+	\twocolumn
+}
