@@ -1,3 +1,30 @@
+%%%%%%%%%%%%%%%
+%Capitalisation.
+%%%%%%%%%%%%%%%
+
+\newcommand\link[2]{%Arguments: text, label
+	\hyperref[#2]{#1}%
+}
+\newcommand\capitallink[2]{%Arguments: text, label
+	\edef\normtext{#1}%
+	\edef\capitaltext{\makefirstuc{\normtext}}%
+	\hyperref[#2]{\capitaltext}%
+}
+
+\newcommand\capitalnameref[1]{%
+	\edef\normtext{\getnamereftext{#1}}%
+	\edef\capitaltext{\makefirstuc{\normtext}}%
+	\hyperref[#1]{\capitaltext}%
+}
+
+\newcommand\capital[1]{%Capitalise the reference given as an argument
+	\begingroup%
+		\let\link\capitallink%
+		\let\nameref\capitalnameref%
+		#1%
+	\endgroup%
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Part, chapters, and sections.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -8,8 +35,8 @@
 \newcommand\chaplabel[1]{\label{chap:#1}}
 \newcommand\chapref[1]{Chapter~\ref{chap:#1}}
 \newcommand\chapnameref[1]{\nameref{chap:#1}}
-\newcommand\chaplink[2]{\hyperref[chap:#2]{#1}}
+\newcommand\chaplink[2]{\link{#1}{chap:#2}}
 
 \newcommand\seclabel[1]{\label{sec:#1}}
 \newcommand\secref[1]{\nameref{sec:#1}}
-\newcommand\seclink[2]{\hyperref[sec:#2]{#1}}
+\newcommand\seclink[2]{\link{#1}{sec:#2}}
