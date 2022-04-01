@@ -33,6 +33,20 @@ spellcheck:
 #.SECONDARY with no prerequisites means that intermediate files are not deleted on completion.
 .SECONDARY:
 
+###############
+#Website stuff.
+###############
+
+website_dir := website
+website_pdfs := $(book_pdfs:%=$(website_dir)/%)
+
+$(website_dir)/%.pdf: %.pdf
+	@cp $< $@
+
+website: $(website_pdfs)
+
+.PHONY: website
+
 ######################
 #The books themselves.
 ######################
