@@ -1,0 +1,51 @@
+name: Deploy Website
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    container: pyrrhicpachyderm/make-coven
+    name: Fetch & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      
+      - name: Build
+        run: |
+          make website
+      
+      - name: Upload Website Contents Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: website-directory
+          path: website/
+      
+      - name: Upload Compilation Logs Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: compilation-logs
+          path: "**/*.log"
+  
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Website Contents Artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: website-directory
+          path: website/
+      
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: website
+          keep_history: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
