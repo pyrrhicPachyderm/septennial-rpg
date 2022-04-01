@@ -1,0 +1,33 @@
+\usepackage{booktabs}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.2} %Increase vertical spacing in tables for neatness.
+
+%\begin{tabularx} cannot be used inside \newenvironment (see section 5 of tabularx manual).
+%We would use \tabularx instead.
+%However, environments using \tabularx cannot be nested in further environment definitions.
+%Without being able to nest things, this would likely lead to code duplication.
+%So we will be using commands, not environments, for tables.
+%Note that this means we can use the tabularx environment as normal.
+
+\newcommand\simpletableinner[2]{%Arguments: alignment, table
+	\rowcolors{2}{white}{gray!20}
+	
+	%tabularx is necessary in the case of X-type columns.
+	%But using tabularx without X-type columns causes the hrules to span wider than the table.
+	%So detect whether X-type columns are in use, and use regular tabular if not.
+	\IfSubStr{#1}{X}{
+		\begin{tabularx}{\linewidth}{#1}
+			#2
+		\end{tabularx}
+	}{
+		\begin{tabular}{#1}
+			#2
+		\end{tabular}
+	}
+}
+
+\newcommand\simpletable[2]{%Arguments: alignment, table
+	\begin{center}
+	\simpletableinner{#1}{#2}
+	\end{center}
+}
