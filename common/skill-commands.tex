@@ -1,1 +1,16 @@
 \newcommand\skillrank[3]{#1,#2,#3}
+
+\newcommand\skill[2]{%Arguments: skill name, label
+	\subsubsection{#1}%
+	\label{skill:#2}%
+}
+
+\newcommand\skillref[1]{%
+	\nameref{skill:#1}%
+}
+\newcommand\skillrefspeciality[2]{%
+	\nameref{skill:#1} (#2)%
+}
+
+\newcommand\anyspeciality{any}
+\newcommand\variousspeciality{various} %The speciality "various" is used in the skills chapter to discuss the existence of speciality skills.
