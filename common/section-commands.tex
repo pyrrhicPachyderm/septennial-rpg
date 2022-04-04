@@ -1,3 +1,18 @@
+%%%%%%%%%%%%%%%%%
+%Helper commands.
+%%%%%%%%%%%%%%%%%
+
+%From https://tex.stackexchange.com/a/296645/161697
+\makeatletter
+\newcommand{\getnamereftext}[1]{%
+	\@ifundefined{r@#1}{}{%
+		\unexpanded\expandafter\expandafter\expandafter{%
+			\expandafter\expandafter\expandafter\@thirdoffive\csname r@#1\endcsname
+		}%
+	}%
+}
+\makeatother
+
 %%%%%%%%%%%%%%%
 %Capitalisation.
 %%%%%%%%%%%%%%%
