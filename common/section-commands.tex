@@ -13,6 +13,21 @@
 }
 \makeatother
 
+\makeatletter
+\newcommand{\labelname}[1]{\def\@currentlabelname{#1}}%Changes the name used by nameref on the next label.
+\makeatother
+
+\makeatletter
+\newcommand\lcaselabel[1]{%Changes the nameref name to lower case before defining the label.
+	\edef\labname{\@currentlabelname}%
+	%\lowercase is not expandable; bypass using https://tex.stackexchange.com/a/87130
+	\lowercase\expandafter{\expandafter\def\expandafter\lcaselabname\expandafter{\labname}}%
+	\expandafter\labelname\expandafter{\lcaselabname}%
+	\label{#1}%
+	\expandafter\labelname\expandafter{\labname}%Reset it back to what it was
+}
+\makeatother
+
 %%%%%%%%%%%%%%%
 %Capitalisation.
 %%%%%%%%%%%%%%%
