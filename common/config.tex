@@ -59,4 +59,6 @@
 \xpatchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{}
 \makeatother
 
+\addtocontents{toc}{\protect{\pdfbookmark[0]{\contentsname}{toc}}} %Add the Table of Contents PDF bookmark.
+
 \pagestyle{plain} %No headers, and page numbers in bottom centre.
