@@ -1,0 +1,11 @@
+\usepackage{tcolorbox}
+
+\tcbset{parbox=false} %Required for paragraph breaks to work properly.
+
+%For consistency with tables, we'll be using a command instead of an enviroment for boxes.
+
+\newcommand\optionalrule[2]{%Arguments: rule name, rule text
+	\begin{tcolorbox}[float,title=Optional Rule: #1,colback=blue!4]
+		#2
+	\end{tcolorbox}
+}
