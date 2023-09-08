@@ -1,6 +1,12 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{caption}
 \renewcommand{\arraystretch}{1.2} %Increase vertical spacing in tables for neatness.
+
+%Declare a caption format that prints only the caption, with no label.
+%#1 is the label, #2 is the separator, #3 is the text.
+\DeclareCaptionFormat{tablecaptiononly}{#3}
+\captionsetup[table]{format=tablecaptiononly}
 
 %\begin{tabularx} cannot be used inside \newenvironment (see section 5 of tabularx manual).
 %We would use \tabularx instead.
@@ -26,8 +32,13 @@
 	}
 }
 
-\newcommand\simpletable[2]{%Arguments: alignment, table
-	\begin{center}
-	\simpletableinner{#1}{#2}
-	\end{center}
+\newcommand\simpletable[4]{%Arguments: title, label, alignment, table
+	\begin{table}
+		\centering
+		\caption{#1} %TODO
+		\label{table:#2}
+		\simpletableinner{#3}{#4}
+	\end{table}
 }
+
+\newcommand\tableref[1]{\nameref{table:#1}}
