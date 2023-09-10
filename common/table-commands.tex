@@ -41,4 +41,8 @@
 	\end{table}
 }
 
+%For rotated table headers.
+%TODO: Deal with the sapcing between this and \toprule.
+\newcommand\rothead[1]{\multicolumn{1}{c}{\makebox[1em][l]{\rotatebox{90}{#1}}}}
+
 \newcommand\tableref[1]{\nameref{table:#1}}
