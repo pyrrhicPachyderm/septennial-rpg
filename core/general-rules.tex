@@ -73,3 +73,129 @@ If an action is a simple one that the character should be able to routinely perf
 If a character attempts something impossible, such as jumping over the moon or fast-talking the headmaster into giving up his position to a first year student, they fail without a {\test} being rolled.
 Lastly, if there is no penalty for failure, there is no need for a {\test}.
 If the character will keep on trying until they succeed, there's no need to make the player keep rolling {\tests}.
+
+\section{Injury \& Healing}
+\seclabel{injury}
+
+Though safer than many places, school is never a totally safe environment.
+Magical mishaps, accidents on the sports field, brawls between students, an invasion by a dark wizard---many things can lead to students being injured.
+
+\subsection{Damage}
+\seclabel{damage}
+
+When something happens that would injure someone, it does some amount of {\damage}, determined by rolling some dice.
+Unless {\tests}, even non-player characters may roll for {\damage}.
+Spells, weapons, and attacks by mundane or magical each specify how much {\damage} they deal.
+In other cases, the GM simply chooses an appropriate number of dice to roll for {\damage}.
+
+\subsubsection{Toughness}
+\seclabel{toughness}
+
+All characters and creatures have a {\toughness}, which determines how well they can withstand {\damage}.
+Creatures with a higher {\toughness} suffer less severe {\wounds} from the same amount of {\damage}, and can withstand greater amounts of {\damage} without dying.
+By default, all humans, including all player characters, have a {\toughness} of 4, though this may be modified by {\virtues} or {\flaws}.
+Non-humans can have a much wider range of values for {\toughness}.
+
+\subsection{Wounds}
+\seclabel{wounds}
+
+Injury, to player or non-player characters, is represented in the form of {\wounds}.
+Each instance of one or more {\damage} inflicts a {\wound} upon the target.
+\capital{\wounds} have a severity---light, moderate, severe, incapacitating, or lethal---and a description.
+The severity is determined by comparing the {\damage} dealt to the target's {\toughness}, while the description is provided by the GM based on what seems narratively appropriate.
+The description should reflect the severity, and should specify at least where on the target's body the {\wound} has been dealt.
+
+A character may only have a limited number of {\wounds} of each severity: two each of light, moderate, and severe {\wounds}, and one incapacitating {\wound}.
+If they would take a {\wound} in excess of this at any severity, they suffer a more severe {\wound} instead.
+A character with any fatal {\wounds} is dead.
+
+\subsubsection{Inflicting Wounds}
+
+To determine the severity of a {\wound}, compare the {\damage} dealt to target's {\toughness}.
+\capital{\damage} up to the target's {\toughness} deals a light {\wound}.
+\capital{\damage} exceeding this, but not exceeding twice the target's {\toughness}, deals a moderate {\wound}.
+Up to three times the target's {\toughness} deals a severe {\wound}, and up to four times the target's {\toughness} deals an incapacitating {\wound}.
+\capital{\damage} exceeding four times the target's {\toughness} toughness is fatal.
+The \tableref{wound-ranges} table provides a handy reference for some common values of {\toughness}.
+
+\simpletable{Wound Ranges by Toughness}{wound-ranges}{rccccc}{
+	\toprule
+	\rothead{\capital{\toughness}} & \rothead{Light} & \rothead{Moderate} & \rothead{Severe} & \rothead{Incapacitating} & \rothead{Fatal}\\
+	\midrule
+	0 & --- & --- & --- & --- & 1+\\
+	1 & 1 & 2 & 3 & 4 & 5+\\
+	2 & 1--2 & 3--4 & 5--6 & 7--8 & 9+\\
+	3 & 1--3 & 4--6 & 7--9 & 10--12 & 13+\\
+	4 & 1--4 & 5--8 & 9--12 & 13--16 & 17+\\
+	5 & 1--5 & 6--10 & 11--15 & 16--20 & 21+\\
+	\bottomrule
+}
+
+If {\damage} would inflict a {\wound} of a certain severity, but the character already has their full allotment of {\wounds} at that severity, they take a {\wound} of their next available greater severity instead.
+This may cause a fatal {\wound} if a character already has an incapacitating {\wound}.
+
+The description of a {\wound}, including where on the body it is inflicted, is ultimately left at the discretion of the GM, as influenced by the severity and any narrative factors.
+However, if a player wishes to {\wound} a particular part of an opponent's body, they may declare their intention to the GM to do so.
+The GM may simply allow them to do so, call for a {\test} to do so, or make an existing {\test} to hit the target more difficult, due to the complication in aiming for a particular location.
+Again, the narrative should inform this choice: it's easier to hit a particular arm with a sword than it is with a fireball hurled from the opposite end of a field.
+
+\subsubsection{Wound Penalties}
+
+Any character who suffers a fatal {\wound} immediately dies.
+Characters who suffer an incapacitating {\wound} are rendered unconscious.
+They cannot be roused for at least a few minutes, unless the {\wound} is healed, and even when roused, cannot achieve anything without assistance as long as they still have an incapacitating {\wound}.
+Lesser {\wounds}---light, moderate, and severe---carry two penalties for player characters.
+
+\simpletable{Wound Penalties}{wound-penalties}{lrr}{
+	\toprule
+	Severity & \capital{\focus} Penalty & \capital{\test} Penalty\\
+	\midrule
+	Light & $-1$ & $-3$\\
+	Moderate & $-2$ & $-6$\\
+	Severe & $-3$ & $-9$\\
+	\bottomrule
+}
+
+Firstly, {\wounds} apply a penalty to a character's {\focus}, as the pain makes casting spells more difficult.
+This may require a character to lose {\concentration} on some spells when they are {\wounded}
+It is, however, possible to push through this pain with increased mental effort: a character's {\overchannel} is increased by the same amount as any {\focus} lost due to {\wounds}.
+Ignoring or reducing the {\focus} penalty for any reason also reduces the amount of {\overchannel} gained.
+
+Secondly, {\wounds} apply a penalty to all {\tests} that their description would indicate they should penalise (as adjudicated by the GM).
+For example, a {\wounded} leg would penalise {\tests} made to run, and a {\wounded} arm would penalise {\tests} made to use a sword.
+This will usually only penalise physical {\tests}, not mental ones.
+It should not penalise {\tests} to use magic, as that is covered by the {\focus} penalty.
+
+The penalties caused by {\wounds} of each severity are shown in the \tableref{wound-penalties} table.
+\capital{\wound} penalties never stack: only the greatest relevant {\wound} penalty ever applies.
+For the {\focus} penalty, this will always be based on the character's most severe {\wound}.
+For the {\test} penalty, this may be based on a less severe {\wound}, if the more severe {\wound} would not impede the relevant action.
+
+Non-player characters can be {\wounded} in the same way as player characters.
+As non-player characters can never make {\tests}, the penalty from a non-player character's {\wounds} is instead applied as a bonus to a player character's {\tests}, when such {\tests} might benefit from the {\wound}.
+For example, a {\test} made to chase after a creature with a {\wounded} leg, or to sword fight against a person with a {\wounded} arm, would gain a bonus from the most severe relevant {\wound}.
+GMs are not required to track {\focus} for non-player spellcasters, so this penalty is not applied numerically, but GMs are nonetheless encouraged to bear the effect of {\wounds} in mind.
+
+\subsection{Healing \& Recovery}
+
+Recovering naturally from {\wounds} is a slow process.
+It requires some period of time, after which the wound is reduced the next-lowest severity (and likely has its description adjusted to match).
+The recovery period is given in the \tableref{wound-recovery} table.
+For more severe wounds, natural healing will also require first aid and some care not exacerbate the wound during the healing period: a black eye will be little problem, but a broken leg will require splinting and the use of a crutch for a while.
+
+\simpletable{Wound Recovery Time}{wound-recovery}{ll}{
+	\toprule
+	Severity & Recovery Time\\
+	\midrule
+	Light & 1 day\\
+	Moderate & 1 week\\
+	Severe & 1 month\\
+	Incapacitating & 1 month\\
+	\bottomrule
+}
+
+Thankfully, the ready availability of magic means that students are rarely required to recover from any but light {\wounds} naturally.
+The school nurse can always heal even incapacitating {\wounds} within a day.
+However, while the school nurse will never decline a student treatment, their ministrations often come with a number of questions about how a student's {\wounds} were sustained.
+Students wishing to avoid their activities being scrutinised might, therefore, wish to avoid the nurse.
+Healing can instead be sought from students studying restoration, but this can come with its own problems: a substandard quality of healing, or a price demanded in exchange. %TODO: Make "restoration" link.
