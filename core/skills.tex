@@ -15,16 +15,16 @@ These are shown in the \tableref{skill-list} table, while details of each skill 
 	\toprule
 	\capital{\mundaneskillbare} & \capital{\magicskillbare}\\
 	\midrule
-	\capital{\skillref{aim}} & \capital{\skillref{divination}}\\
-	\capital{\skillref{athletics}} & \capital{\skillref{elementalism}}\\
+	\capital{\skillref{aim}} & \capital{\skillref{conjuration}}\\
+	\capital{\skillref{athletics}} & \capital{\skillref{divination}}\\
 	\capital{\skillref{beast-handling}} & \capital{\skillref{enchanting}}\\
 	\capital{\skillref{charm}} & \capital{\skillref{illusion}}\\
 	\capital{\skillrefspeciality{craft}{\variousspeciality}} & \capital{\skillref{kinetics}}\\
 	\capital{\skillref{fight}} & \capital{\skillref{metamagic}}\\
 	\capital{\skillref{investigation}} & \capital{\skillref{necromancy}}\\
 	\capital{\skillref{leadership}} & \capital{\skillref{restoration}}\\
-	\capital{\skillrefspeciality{lore}{\variousspeciality}} & \capital{\skillref{transmutation}}\\
-	\capital{\skillref{observe}}\\
+	\capital{\skillrefspeciality{lore}{\variousspeciality}} & \capital{\skillref{sorcery}}\\
+	\capital{\skillref{observe}} & \capital{\skillref{transmutation}}\\
 	\capital{\skillrefspeciality{perform}{\variousspeciality}}\\
 	\capital{\skillref{rhetoric}}\\
 	\capital{\skillref{subterfuge}}\\
@@ -185,15 +185,15 @@ This includes sneaking, hiding, stealing, smuggling, and even lying.
 Magical skills represent a student's mastery of the various magical disciplines---they are primarily developed by attending classes.
 They are primarily used in the actual practice of magic, though each doubles as a \skillref{lore} skill concerning magic of the relevant discipline.
 
+\skill{Conjuration}{conjuration}
+
+Used to create something from nothing.
+For novices, objects and creatures created by \skillref{conjuration} are usually temporary, but skilled users will learn how to make their creations permanent.
+
 \skill{Divination}{divination}
 
 Used to obtain information by magic.
 \capital{\skillref{divination}} allows a wizard to scry on remote locations, sense things beyond normal perception, pierce illusions, and otherwise to discover whatever they cannot learn mundanely.
-
-\skill{Elementalism}{elementalism}
-
-Used to manipulate the four classical elements: water, earth, fire, and air.
-While not as broad in target as \skillref{kinetics}, \skillref{elementalism} is far more versatile in what it can do with the elements it affects.
 
 \skill{Enchanting}{enchanting}
 
@@ -223,7 +223,7 @@ They may also affect {\mana} itself, generating it, or funnelling more of it int
 
 Used to manipulate the dead, or to bring about death in the living.
 In the former application, \skillref{necromancy} allows the animation of undead or communion with spirits.
-In the latter application, it directly weakens, wounds, or kills, without any need for the fire of \skillref{elementalism} or the bludgeon of \skillref{kinetics}.
+In the latter application, it directly weakens, wounds, or kills, without any need for the fire of \skillref{sorcery} or the bludgeon of \skillref{kinetics}.
 \capital{\skillref{necromancy}} is perhaps the most feared form of magic, and its use is often highly regulated.
 
 \skill{Restoration}{restoration}
@@ -231,6 +231,13 @@ In the latter application, it directly weakens, wounds, or kills, without any ne
 Used to restore things to a previous state, or to enhance them to a better state.
 \capital{\skillref{restoration}} is most well known for its use in healing people, but it can also heal animals and plants, or even repair damaged or destroyed objects.
 Used for enhancement, it can make a person faster or stronger, make a plant grow faster, or make a sword sharper.
+
+\skill{Sorcery}{sorcery}
+
+Used to create or manipulate heat, light, sound, lightning, and similar energies.
+Detractors of \skillref{sorcery} say it's nothing but throwing fireballs, and it's true that the discipline often favours power over finesse.
+But modern \skillref{sorcery} also encompasses the control, containment, and destruction of energy, and thus has a much wider variety of uses.
+Including warding against fireballs.
 
 \skill{Transmutation}{transmutation}
 
