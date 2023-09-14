@@ -71,6 +71,30 @@
 \newcommand\secref[1]{\nameref{sec:#1}}
 \newcommand\seclink[2]{\link{#1}{sec:#2}}
 
+%%%%%%%%%%%%%
+%Disciplines.
+%%%%%%%%%%%%%
+
+\newcommand\discipline[4]{%Arguments: name, label, practitioner noun, practitioner plural
+	\chapter{#1}%
+	\chaplabel{#2}%
+	\labelname{#1}%
+	\lcaselabel{discipline:#2}%
+	\labelname{#1's}%
+	\lcaselabel{disciplinepossessive:#2}%
+	\labelname{#3}%
+	\lcaselabel{practitioner:#2}%
+	\labelname{#4}%
+	\lcaselabel{practitioners:#2}%
+	\labelname{#3's}%
+	\lcaselabel{practitionerpossessive:#2}%
+}
+\newcommand\discref[1]{\nameref{discipline:#1}}
+\newcommand\discrefpossessive[1]{\nameref{disciplinepossessive:#1}}
+\newcommand\practitioner[1]{\nameref{practitioner:#1}}
+\newcommand\practitioners[1]{\nameref{practitioners:#1}}
+\newcommand\practitionerpossessive[1]{\nameref{practitionerpossessive:#1}}
+
 %%%%%%%%%%%%%%%%%%
 %Predefined links.
 %%%%%%%%%%%%%%%%%%
