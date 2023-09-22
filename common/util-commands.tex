@@ -1,0 +1,13 @@
+%Commands for internal use in defining further commands.
+
+%Applies a one-argument command to each string in a comma-separated list.
+%Based on from https://tex.stackexchange.com/a/43473
+\newcommand\apply[2]{%Arguments: command name, list
+	\foreach \x [count=\xi] in #2 {%
+		\ifnum\xi=1%
+			\csname #1\endcsname{\x}%
+		\else%
+			, \csname #1\endcsname{\x}%
+		\fi%
+	}%
+}
