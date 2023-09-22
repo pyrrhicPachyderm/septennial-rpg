@@ -1,0 +1,46 @@
+%Commands can't take more than nine arguments, so we split it up using some black TeX magic.
+%See https://tex.stackexchange.com/a/2134
+
+%TODO: Casting time?
+%Tags are descriptive, e.g. Fire, Light, Ward. Attributes have associated rules, e.g. reactive, extended casting.
+\newcommand\spell[8]{%Arguments: title, label, disciplines, tags, focus, range, duration, attributes, text, default mods, unlocked mods.
+	\def\tempspelltitle{#1}%
+	\def\tempspelllabel{#2}%
+	\def\tempspelldisciplines{#3}%
+	\def\tempspelltags{#4}%
+	\def\tempspellfocus{#5}%
+	\def\tempspellrange{#6}%
+	\def\tempspellduration{#7}%
+	\def\tempspellattributes{#8}%
+	\spellcontinued
+}
+
+%TODO: Make the two modifier headings not show up if there are no such modifiers.
+\newcommand\spellcontinued[3]{%Arguments: text, default mods, unlocked mods.
+	\subsection{\tempspelltitle}%
+	\label{spell:\tempspelllabel}%
+	\textbf{Disciplines:} {\tempspelldisciplines}\\
+	\textbf{Tags:} {\tempspelltags}\\
+	\textbf{Focus:} {\tempspellfocus}\\
+	\textbf{Range:} {\tempspellrange}\\
+	\textbf{Duration:} {\tempspellduration}\\
+	\textbf{Attributes:} {\tempspellattributes}\\
+	
+	\noindent\ignorespaces #1
+	
+	\subsubsection{Basic Modifiers}
+	#2
+	
+	\subsubsection{Learnable Modifiers}
+	#3
+}
+
+%An internal spell modifier, written within a spell description.
+\newcommand\spellmodinternal[4]{%Arguments: title, label, focus, text.
+	\paragraph[\tempspelltitle: #1]{#1 [#3]:}%
+	\label{spellmodinternal:\tempspelllabel:#2}%
+	#4
+}
+
+\newcommand\spellref[1]{\nameref{spell:#1}}
+\newcommand\spellmodinternalref[2]{\nameref{spellmodinternal:#1:#2}} %Arguments: spell label, modifier label
